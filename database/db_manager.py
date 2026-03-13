@@ -18,7 +18,7 @@ def get_connection(db_path: str = DB_PATH):
     """Context-managed SQLite connection."""
     conn = sqlite3.connect(db_path)
     conn.execute("PRAGMA journal_mode=WAL")
-    conn.execute("PRAGMA foreign_keys=ON")
+    conn.execute("PRAGMA foreign_keys=OFF")
     try:
         yield conn
         conn.commit()
